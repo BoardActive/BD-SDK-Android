@@ -1,0 +1,838 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.branddrop.addrop"
+4    android:versionCode="2"
+5    android:versionName="2.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+12-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:6:5-85
+12-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:6:22-82
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:7:5-81
+13-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:7:22-78
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:8:5-79
+14-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:8:22-76
+15    <uses-permission android:name="android.hardware.location.gps" />
+15-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:9:5-69
+15-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:9:22-66
+16    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+16-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:10:5-85
+16-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:10:22-82
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:12:5-79
+17-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:12:22-76
+18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+18-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:14:5-77
+18-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:14:22-74
+19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+19-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:15:5-86
+19-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:15:22-83
+20    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+20-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:17:5-77
+20-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:17:22-74
+21    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+21-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-81
+21-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-78
+22    <uses-permission android:name="android.permission.WAKE_LOCK" />
+22-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-68
+22-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:22-65
+23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+23-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:5-81
+23-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:22-78
+24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+25    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+25-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:11:5-76
+25-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:11:22-73
+26    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+26-->[com.wdullaer:materialdatetimepicker:4.2.3] /Users/keyurm.prajapati/.gradle/caches/transforms-3/85fd5a516f03799dd340dd45886e9789/transformed/jetified-materialdatetimepicker-4.2.3/AndroidManifest.xml:26:5-66
+26-->[com.wdullaer:materialdatetimepicker:4.2.3] /Users/keyurm.prajapati/.gradle/caches/transforms-3/85fd5a516f03799dd340dd45886e9789/transformed/jetified-materialdatetimepicker-4.2.3/AndroidManifest.xml:26:22-63
+27    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+27-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:5-82
+27-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:22-79
+28
+29    <uses-feature
+29-->[com.google.android.gms:play-services-maps:17.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f2a36d8e9915136df29e26368f4f4d27/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+30        android:glEsVersion="0x00020000"
+30-->[com.google.android.gms:play-services-maps:17.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f2a36d8e9915136df29e26368f4f4d27/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+31        android:required="true" />
+31-->[com.google.android.gms:play-services-maps:17.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f2a36d8e9915136df29e26368f4f4d27/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+32
+33    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+33-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/4762b45d70c10d2e06a679ddd3c7f9a4/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:25:5-79
+33-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/4762b45d70c10d2e06a679ddd3c7f9a4/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:25:22-76
+34    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+34-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:26:5-110
+34-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:26:22-107
+35
+36    <permission
+36-->[androidx.core:core:1.13.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0fe1a69101a9cc2047fdb64060140df9/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+37        android:name="com.branddrop.addrop.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37-->[androidx.core:core:1.13.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0fe1a69101a9cc2047fdb64060140df9/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+38        android:protectionLevel="signature" />
+38-->[androidx.core:core:1.13.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0fe1a69101a9cc2047fdb64060140df9/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+39
+40    <uses-permission android:name="com.branddrop.addrop.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40-->[androidx.core:core:1.13.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0fe1a69101a9cc2047fdb64060140df9/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+40-->[androidx.core:core:1.13.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0fe1a69101a9cc2047fdb64060140df9/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+41
+42    <application
+42-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:19:5-129:19
+43        android:name="com.branddrop.addrop.BrandDropApp"
+43-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:20:9-57
+44        android:allowBackup="true"
+44-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:21:9-35
+45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+45-->[androidx.core:core:1.13.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0fe1a69101a9cc2047fdb64060140df9/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+46        android:debuggable="true"
+47        android:extractNativeLibs="false"
+48        android:icon="@mipmap/ic_launcher"
+48-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:22:9-43
+49        android:label="@string/app_name"
+49-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:23:9-41
+50        android:roundIcon="@mipmap/ic_launcher_round"
+50-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:24:9-54
+51        android:supportsRtl="true"
+51-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:25:9-35
+52        android:testOnly="true"
+53        android:theme="@style/AppTheme"
+53-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:26:9-40
+54        android:usesCleartextTraffic="true" >
+54-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:27:9-44
+55        <activity
+55-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:28:9-30:39
+56            android:name="com.branddrop.addrop.activity.AppIdActivity"
+56-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:29:13-71
+57            android:exported="true" />
+57-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:30:13-36
+58        <activity
+58-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:31:9-33:39
+59            android:name="com.branddrop.addrop.activity.DisplayImageActivity"
+59-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:32:13-78
+60            android:exported="true" />
+60-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:33:13-36
+61        <activity
+61-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:34:9-37:61
+62            android:name="com.branddrop.bakit.customViews.CustomAttributesActivity"
+62-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:35:13-84
+63            android:exported="true"
+63-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:36:13-36
+64            android:label="@string/title_activity_custom" />
+64-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:37:13-58
+65        <activity
+65-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:38:9-44:59
+66            android:name="com.branddrop.addrop.activity.UserActivity"
+66-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:39:13-70
+67            android:configChanges="orientation"
+67-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:40:13-48
+68            android:exported="true"
+68-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:41:13-36
+69            android:label="@string/title_activity_user"
+69-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:42:13-56
+70            android:screenOrientation="portrait"
+70-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:43:13-49
+71            android:theme="@style/AppTheme.NoActionBar" />
+71-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:44:13-56
+72        <activity
+72-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:45:9-51:59
+73            android:name="com.branddrop.addrop.activity.CustomActivity"
+73-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:46:13-72
+74            android:configChanges="orientation"
+74-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:47:13-48
+75            android:exported="true"
+75-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:48:13-36
+76            android:label="@string/title_activity_custom"
+76-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:49:13-58
+77            android:screenOrientation="portrait"
+77-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:50:13-49
+78            android:theme="@style/AppTheme.NoActionBar" />
+78-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:51:13-56
+79        <activity
+79-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:52:9-62:20
+80            android:name="com.branddrop.addrop.activity.MainActivity"
+80-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:53:13-70
+81            android:configChanges="orientation"
+81-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:54:13-48
+82            android:exported="true"
+82-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:55:13-36
+83            android:screenOrientation="portrait" >
+83-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:56:13-49
+84            <intent-filter>
+84-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:57:13-61:29
+85                <action android:name="android.intent.action.MAIN" />
+85-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:58:17-69
+85-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:58:25-66
+86
+87                <category android:name="android.intent.category.LAUNCHER" />
+87-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:60:17-77
+87-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:60:27-74
+88            </intent-filter>
+89        </activity>
+90        <activity
+90-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:64:9-68:20
+91            android:name="com.branddrop.addrop.activity.MessagesActivity"
+91-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:64:19-80
+92            android:enabled="true"
+92-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:66:13-35
+93            android:exported="true" >
+93-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:65:13-36
+94        </activity>
+95        <activity
+95-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:69:9-87:20
+96            android:name="com.branddrop.addrop.activity.MessageActivity"
+96-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:70:13-73
+97            android:enabled="true"
+97-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:71:13-35
+98            android:excludeFromRecents="true"
+98-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:72:13-46
+99            android:exported="true"
+99-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:73:13-36
+100            android:launchMode="singleTop"
+100-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:74:13-43
+101            android:parentActivityName="com.branddrop.addrop.activity.MessagesActivity"
+101-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:75:13-88
+102            android:screenOrientation="portrait"
+102-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:76:13-49
+103            android:taskAffinity="" >
+103-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:77:13-36
+104            <meta-data
+104-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:78:13-80:82
+105                android:name="android.support.PARENT_ACTIVITY"
+105-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:79:17-63
+106                android:value="com.branddrop.addrop.activity.MessagesActivity" />
+106-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:80:17-79
+107
+108            <intent-filter>
+108-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:82:13-86:29
+109                <action android:name="OPEN_MESSAGE" />
+109-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:83:17-55
+109-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:83:25-52
+110
+111                <category android:name="android.intent.category.DEFAULT" />
+111-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:85:17-76
+111-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:85:27-73
+112            </intent-filter>
+113        </activity>
+114        <activity
+114-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:88:9-96:66
+115            android:name="com.branddrop.addrop.activity.DialogMessageActivity"
+115-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:89:13-79
+116            android:enabled="true"
+116-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:90:13-35
+117            android:excludeFromRecents="false"
+117-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:91:13-47
+118            android:exported="true"
+118-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:92:13-36
+119            android:launchMode="singleTop"
+119-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:93:13-43
+120            android:screenOrientation="portrait"
+120-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:94:13-49
+121            android:taskAffinity=""
+121-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:95:13-36
+122            android:theme="@style/AppTheme.Dialog.NoActionBar" />
+122-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:96:13-63
+123
+124        <service
+124-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:98:9-104:19
+125            android:name="com.branddrop.addrop.firebase.FCMService"
+125-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:99:13-68
+126            android:exported="false" >
+126-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:100:13-37
+127            <intent-filter>
+127-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:101:13-103:29
+128                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+128-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:102:17-78
+128-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:102:25-75
+129            </intent-filter>
+130        </service>
+131
+132        <meta-data
+132-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:106:9-108:54
+133            android:name="com.google.firebase.messaging.default_notification_icon"
+133-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:107:13-83
+134            android:resource="@mipmap/ic_launcher" />
+134-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:108:13-51
+135        <meta-data
+135-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:109:9-111:53
+136            android:name="com.google.firebase.messaging.default_notification_color"
+136-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:110:13-84
+137            android:resource="@color/colorAccent" />
+137-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:111:13-50
+138        <meta-data
+138-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:112:9-114:71
+139            android:name="com.google.firebase.messaging.default_notification_channel_id"
+139-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:113:13-89
+140            android:value="@string/default_notification_channel_id" />
+140-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:114:13-68
+141
+142        <receiver
+142-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:116:9-121:20
+143            android:name="com.branddrop.bakit.GeofenceBroadCastReceiver"
+143-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:117:13-73
+144            android:allowBackup="true"
+144-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:118:13-39
+145            android:enabled="true"
+145-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:119:13-35
+146            android:exported="true" >
+146-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:120:13-36
+147        </receiver>
+148
+149        <service
+149-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:122:9-126:40
+150            android:name="com.branddrop.bakit.LocationService"
+150-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:123:13-63
+151            android:enabled="true"
+151-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:124:13-35
+152            android:exported="false"
+152-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:126:13-37
+153            android:foregroundServiceType="location" />
+153-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:125:13-53
+154
+155        <!-- [START BOOT/DEFAULT SERVICE] -->
+156        <receiver
+156-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:9-34:20
+157            android:name="com.branddrop.bakit.BootReceiver"
+157-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-60
+158            android:enabled="true"
+158-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-35
+159            android:exported="true"
+159-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-36
+160            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+160-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-75
+161            <intent-filter>
+161-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-33:29
+162                <action android:name="android.intent.action.BOOT_COMPLETED" />
+162-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:30:17-79
+162-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:30:25-76
+163
+164                <category android:name="android.intent.category.DEFAULT" />
+164-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:85:17-76
+164-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:85:27-73
+165            </intent-filter>
+166        </receiver> <!-- [END BOOT/DEFAULT SERVICE] -->
+167        <receiver
+167-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:38:9-45:20
+168            android:name="com.branddrop.bakit.LocationUpdatesBroadcastReceiver"
+168-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:39:13-80
+169            android:enabled="true"
+169-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:40:13-35
+170            android:exported="true" >
+170-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:41:13-36
+171            <intent-filter>
+171-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:42:13-44:29
+172                <action android:name="com.google.android.gms.location.sample.locationupdatespendingintent.LocationUpdatesBroadcastReceiver.ACTION_PROCESS_UPDATES" />
+172-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:43:17-166
+172-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:43:25-163
+173            </intent-filter>
+174        </receiver>
+175        <receiver
+175-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:46:9-49:39
+176            android:name="com.branddrop.bakit.MyBroadcastReceiver"
+176-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-67
+177            android:enabled="true"
+177-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:48:13-35
+178            android:exported="true" />
+178-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:49:13-36
+179
+180        <service
+180-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:51:9-55:56
+181            android:name="com.branddrop.bakit.LocationUpdatesService"
+181-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:52:13-70
+182            android:enabled="true"
+182-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:53:13-35
+183            android:exported="false"
+183-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:54:13-37
+184            android:foregroundServiceType="location" />
+184-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:55:13-53
+185
+186        <activity
+186-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:63:9-66:20
+187            android:name="com.branddrop.bakit.RequestPermissionActivity"
+187-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:64:13-73
+188            android:exported="true" >
+188-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:65:13-36
+189        </activity>
+190        <activity
+190-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:15:9-21:20
+191            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+191-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:16:13-91
+192            android:exported="false"
+192-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:17:13-37
+193            android:label="@string/places_autocomplete_label"
+193-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:18:13-62
+194            android:theme="@style/PlacesAutocompleteOverlay"
+194-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:19:13-61
+195            android:windowSoftInputMode="adjustResize" >
+195-->[com.google.android.libraries.places:places:3.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6f78570ce72582500d7bb787a75e182c/transformed/jetified-places-3.5.0/AndroidManifest.xml:20:13-55
+196        </activity>
+197
+198        <service
+198-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:29:9-35:19
+199            android:name="com.google.firebase.components.ComponentDiscoveryService"
+199-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:30:13-84
+200            android:directBootAware="true"
+200-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+201            android:exported="false" >
+201-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:31:13-37
+202            <meta-data
+202-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+203                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+203-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+204                android:value="com.google.firebase.components.ComponentRegistrar" />
+204-->[com.google.firebase:firebase-iid:21.1.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/6e2e497eea3fc612955c9df67bdb925c/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+205            <meta-data
+205-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:57:13-59:85
+206                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+206-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:58:17-122
+207                android:value="com.google.firebase.components.ComponentRegistrar" />
+207-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:59:17-82
+208            <meta-data
+208-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:60:13-62:85
+209                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+209-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:61:17-119
+210                android:value="com.google.firebase.components.ComponentRegistrar" />
+210-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:62:17-82
+211            <meta-data
+211-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/4762b45d70c10d2e06a679ddd3c7f9a4/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:31:13-33:85
+212                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+212-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/4762b45d70c10d2e06a679ddd3c7f9a4/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:32:17-139
+213                android:value="com.google.firebase.components.ComponentRegistrar" />
+213-->[com.google.android.gms:play-services-measurement-api:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/4762b45d70c10d2e06a679ddd3c7f9a4/transformed/jetified-play-services-measurement-api-21.1.1/AndroidManifest.xml:33:17-82
+214            <meta-data
+214-->[com.google.firebase:firebase-installations:17.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/d2264ea795f5f135999e487e8e518fd0/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+215                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+215-->[com.google.firebase:firebase-installations:17.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/d2264ea795f5f135999e487e8e518fd0/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+216                android:value="com.google.firebase.components.ComponentRegistrar" />
+216-->[com.google.firebase:firebase-installations:17.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/d2264ea795f5f135999e487e8e518fd0/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+217            <meta-data
+217-->[com.google.firebase:firebase-installations:17.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/d2264ea795f5f135999e487e8e518fd0/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+218                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+218-->[com.google.firebase:firebase-installations:17.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/d2264ea795f5f135999e487e8e518fd0/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+219                android:value="com.google.firebase.components.ComponentRegistrar" />
+219-->[com.google.firebase:firebase-installations:17.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/d2264ea795f5f135999e487e8e518fd0/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+220            <meta-data
+220-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/fc09ccee4cffe93f81c73537862b0432/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+221                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+221-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/fc09ccee4cffe93f81c73537862b0432/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+222                android:value="com.google.firebase.components.ComponentRegistrar" />
+222-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/fc09ccee4cffe93f81c73537862b0432/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+223            <meta-data
+223-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+224                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+224-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+225                android:value="com.google.firebase.components.ComponentRegistrar" />
+225-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+226            <meta-data
+226-->[com.google.firebase:firebase-datatransport:18.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/84dfdd57ae8054aa50440f2f5262db4a/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:25:13-27:85
+227                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+227-->[com.google.firebase:firebase-datatransport:18.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/84dfdd57ae8054aa50440f2f5262db4a/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:26:17-115
+228                android:value="com.google.firebase.components.ComponentRegistrar" />
+228-->[com.google.firebase:firebase-datatransport:18.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/84dfdd57ae8054aa50440f2f5262db4a/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:27:17-82
+229        </service>
+230
+231        <receiver
+231-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:29:9-40:20
+232            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+232-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:30:13-78
+233            android:exported="true"
+233-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:31:13-36
+234            android:permission="com.google.android.c2dm.permission.SEND" >
+234-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:32:13-73
+235            <intent-filter>
+235-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:33:13-35:29
+236                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+236-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:34:17-81
+236-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:34:25-78
+237            </intent-filter>
+238
+239            <meta-data
+239-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:37:13-39:40
+240                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+240-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:38:17-92
+241                android:value="true" />
+241-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:39:17-37
+242        </receiver>
+243        <!--
+244             FirebaseMessagingService performs security checks at runtime,
+245             but set to not exported to explicitly avoid allowing another app to call it.
+246        -->
+247        <service
+247-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:46:9-53:19
+248            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+248-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:47:13-82
+249            android:directBootAware="true"
+249-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:48:13-43
+250            android:exported="false" >
+250-->[com.google.firebase:firebase-messaging:24.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f6b2ebc515bc99e4b24b3f7c3118c208/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:49:13-37
+251            <intent-filter android:priority="-500" >
+251-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:101:13-103:29
+252                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+252-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:102:17-78
+252-->/Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/src/main/AndroidManifest.xml:102:25-75
+253            </intent-filter>
+254        </service>
+255
+256        <provider
+256-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:29:9-37:20
+257            android:name="androidx.startup.InitializationProvider"
+257-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:30:13-67
+258            android:authorities="com.branddrop.addrop.androidx-startup"
+258-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:31:13-68
+259            android:exported="false" >
+259-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:32:13-37
+260            <meta-data
+260-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:34:13-36:52
+261                android:name="androidx.work.WorkManagerInitializer"
+261-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:35:17-68
+262                android:value="androidx.startup" />
+262-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:36:17-49
+263            <meta-data
+263-->[androidx.emoji2:emoji2:1.3.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/414f682e842340c07c8606cc5d593b81/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+264                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+264-->[androidx.emoji2:emoji2:1.3.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/414f682e842340c07c8606cc5d593b81/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+265                android:value="androidx.startup" />
+265-->[androidx.emoji2:emoji2:1.3.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/414f682e842340c07c8606cc5d593b81/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+266            <meta-data
+266-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/keyurm.prajapati/.gradle/caches/transforms-3/8b1f8bd6255b1391f311f36add6e86d9/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+267                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+267-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/keyurm.prajapati/.gradle/caches/transforms-3/8b1f8bd6255b1391f311f36add6e86d9/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+268                android:value="androidx.startup" />
+268-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/keyurm.prajapati/.gradle/caches/transforms-3/8b1f8bd6255b1391f311f36add6e86d9/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+269            <meta-data
+269-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+270                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+270-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+271                android:value="androidx.startup" />
+271-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+272        </provider>
+273
+274        <service
+274-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:39:9-45:35
+275            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+275-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:40:13-88
+276            android:directBootAware="false"
+276-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:41:13-44
+277            android:enabled="@bool/enable_system_alarm_service_default"
+277-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:42:13-72
+278            android:exported="false" />
+278-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:43:13-37
+279        <service
+279-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:46:9-52:35
+280            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+280-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:47:13-84
+281            android:directBootAware="false"
+281-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:48:13-44
+282            android:enabled="@bool/enable_system_job_service_default"
+282-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:49:13-70
+283            android:exported="true"
+283-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:50:13-36
+284            android:permission="android.permission.BIND_JOB_SERVICE" />
+284-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:51:13-69
+285        <service
+285-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:53:9-59:35
+286            android:name="androidx.work.impl.foreground.SystemForegroundService"
+286-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:54:13-81
+287            android:directBootAware="false"
+287-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:55:13-44
+288            android:enabled="@bool/enable_system_foreground_service_default"
+288-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:56:13-77
+289            android:exported="false" />
+289-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:57:13-37
+290
+291        <receiver
+291-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:61:9-66:35
+292            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+292-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:62:13-88
+293            android:directBootAware="false"
+293-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:63:13-44
+294            android:enabled="true"
+294-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:64:13-35
+295            android:exported="false" />
+295-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:65:13-37
+296        <receiver
+296-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:67:9-77:20
+297            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+297-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:68:13-106
+298            android:directBootAware="false"
+298-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:69:13-44
+299            android:enabled="false"
+299-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:70:13-36
+300            android:exported="false" >
+300-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:71:13-37
+301            <intent-filter>
+301-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:73:13-76:29
+302                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+302-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:17-87
+302-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:25-84
+303                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+303-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:17-90
+303-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:25-87
+304            </intent-filter>
+305        </receiver>
+306        <receiver
+306-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:78:9-88:20
+307            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+307-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:79:13-104
+308            android:directBootAware="false"
+308-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:80:13-44
+309            android:enabled="false"
+309-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:81:13-36
+310            android:exported="false" >
+310-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:82:13-37
+311            <intent-filter>
+311-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:84:13-87:29
+312                <action android:name="android.intent.action.BATTERY_OKAY" />
+312-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:17-77
+312-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:25-74
+313                <action android:name="android.intent.action.BATTERY_LOW" />
+313-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:17-76
+313-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:25-73
+314            </intent-filter>
+315        </receiver>
+316        <receiver
+316-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:89:9-99:20
+317            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+317-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:90:13-104
+318            android:directBootAware="false"
+318-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:91:13-44
+319            android:enabled="false"
+319-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:92:13-36
+320            android:exported="false" >
+320-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:93:13-37
+321            <intent-filter>
+321-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:95:13-98:29
+322                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+322-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:17-83
+322-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:25-80
+323                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+323-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:17-82
+323-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:25-79
+324            </intent-filter>
+325        </receiver>
+326        <receiver
+326-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:100:9-109:20
+327            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+327-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:101:13-103
+328            android:directBootAware="false"
+328-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:102:13-44
+329            android:enabled="false"
+329-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:103:13-36
+330            android:exported="false" >
+330-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:104:13-37
+331            <intent-filter>
+331-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:106:13-108:29
+332                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+332-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:17-79
+332-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:25-76
+333            </intent-filter>
+334        </receiver>
+335        <receiver
+335-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:110:9-121:20
+336            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+336-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:111:13-88
+337            android:directBootAware="false"
+337-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:112:13-44
+338            android:enabled="false"
+338-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:113:13-36
+339            android:exported="false" >
+339-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:114:13-37
+340            <intent-filter>
+340-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:116:13-120:29
+341                <action android:name="android.intent.action.BOOT_COMPLETED" />
+341-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:30:17-79
+341-->[:bakit] /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/bakit/build/intermediates/merged_manifest/debug/AndroidManifest.xml:30:25-76
+342                <action android:name="android.intent.action.TIME_SET" />
+342-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:17-73
+342-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:25-70
+343                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+343-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:17-81
+343-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:25-78
+344            </intent-filter>
+345        </receiver>
+346        <receiver
+346-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:122:9-131:20
+347            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+347-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:123:13-99
+348            android:directBootAware="false"
+348-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:124:13-44
+349            android:enabled="@bool/enable_system_alarm_service_default"
+349-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:125:13-72
+350            android:exported="false" >
+350-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:126:13-37
+351            <intent-filter>
+351-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:128:13-130:29
+352                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+352-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:17-98
+352-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:25-95
+353            </intent-filter>
+354        </receiver>
+355        <receiver
+355-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:132:9-142:20
+356            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+356-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:133:13-78
+357            android:directBootAware="false"
+357-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:134:13-44
+358            android:enabled="true"
+358-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:135:13-35
+359            android:exported="true"
+359-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:136:13-36
+360            android:permission="android.permission.DUMP" >
+360-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:137:13-57
+361            <intent-filter>
+361-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:139:13-141:29
+362                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+362-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:17-88
+362-->[androidx.work:work-runtime:2.9.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/e516658c21438347f04df014e3c208f0/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:25-85
+363            </intent-filter>
+364        </receiver>
+365
+366        <service
+366-->[androidx.room:room-runtime:2.6.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/a0e098de33f177c9c8eec4f37abb0ab9/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+367            android:name="androidx.room.MultiInstanceInvalidationService"
+367-->[androidx.room:room-runtime:2.6.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/a0e098de33f177c9c8eec4f37abb0ab9/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+368            android:directBootAware="true"
+368-->[androidx.room:room-runtime:2.6.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/a0e098de33f177c9c8eec4f37abb0ab9/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+369            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+369-->[androidx.room:room-runtime:2.6.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/a0e098de33f177c9c8eec4f37abb0ab9/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+370        <uses-library
+370-->[com.google.android.gms:play-services-maps:17.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f2a36d8e9915136df29e26368f4f4d27/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+371            android:name="org.apache.http.legacy"
+371-->[com.google.android.gms:play-services-maps:17.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f2a36d8e9915136df29e26368f4f4d27/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+372            android:required="false" />
+372-->[com.google.android.gms:play-services-maps:17.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/f2a36d8e9915136df29e26368f4f4d27/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+373
+374        <activity
+374-->[com.google.android.gms:play-services-base:18.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/9955d3f298a27ac85e6eb6ea242e2bf3/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+375            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+375-->[com.google.android.gms:play-services-base:18.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/9955d3f298a27ac85e6eb6ea242e2bf3/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+376            android:exported="false"
+376-->[com.google.android.gms:play-services-base:18.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/9955d3f298a27ac85e6eb6ea242e2bf3/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+377            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+377-->[com.google.android.gms:play-services-base:18.5.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/9955d3f298a27ac85e6eb6ea242e2bf3/transformed/jetified-play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+378
+379        <provider
+379-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+380            android:name="com.google.firebase.provider.FirebaseInitProvider"
+380-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+381            android:authorities="com.branddrop.addrop.firebaseinitprovider"
+381-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+382            android:directBootAware="true"
+382-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+383            android:exported="false"
+383-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+384            android:initOrder="100" />
+384-->[com.google.firebase:firebase-common:21.0.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/719be01c81c645e0610855b6a541fec0/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+385
+386        <receiver
+386-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:29:9-33:20
+387            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+387-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:30:13-85
+388            android:enabled="true"
+388-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:31:13-35
+389            android:exported="false" >
+389-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:32:13-37
+390        </receiver>
+391
+392        <service
+392-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:35:9-38:40
+393            android:name="com.google.android.gms.measurement.AppMeasurementService"
+393-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:36:13-84
+394            android:enabled="true"
+394-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:37:13-35
+395            android:exported="false" />
+395-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:38:13-37
+396        <service
+396-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:39:9-43:72
+397            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+397-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:40:13-87
+398            android:enabled="true"
+398-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:41:13-35
+399            android:exported="false"
+399-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:42:13-37
+400            android:permission="android.permission.BIND_JOB_SERVICE" />
+400-->[com.google.android.gms:play-services-measurement:21.1.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/0357de973bbe745e8a12bd3f32c87842/transformed/jetified-play-services-measurement-21.1.1/AndroidManifest.xml:43:13-69
+401
+402        <meta-data
+402-->[com.google.android.gms:play-services-basement:18.4.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/bd6083813fb3e2ee3b8320f83044afff/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+403            android:name="com.google.android.gms.version"
+403-->[com.google.android.gms:play-services-basement:18.4.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/bd6083813fb3e2ee3b8320f83044afff/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+404            android:value="@integer/google_play_services_version" />
+404-->[com.google.android.gms:play-services-basement:18.4.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/bd6083813fb3e2ee3b8320f83044afff/transformed/jetified-play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+405
+406        <receiver
+406-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+407            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+407-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+408            android:directBootAware="false"
+408-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+409            android:enabled="true"
+409-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+410            android:exported="true"
+410-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+411            android:permission="android.permission.DUMP" >
+411-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+412            <intent-filter>
+412-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+413                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+413-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+413-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+414            </intent-filter>
+415            <intent-filter>
+415-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+416                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+416-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+416-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+417            </intent-filter>
+418            <intent-filter>
+418-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+419                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+419-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+419-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+420            </intent-filter>
+421            <intent-filter>
+421-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+422                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+422-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+422-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/keyurm.prajapati/.gradle/caches/transforms-3/94559e318f191b90bdd3110809102dcb/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+423            </intent-filter>
+424        </receiver>
+425
+426        <service
+426-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/3425690b17196649318eb513230585a6/transformed/jetified-transport-backend-cct-3.2.0/AndroidManifest.xml:26:9-32:19
+427            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+427-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/3425690b17196649318eb513230585a6/transformed/jetified-transport-backend-cct-3.2.0/AndroidManifest.xml:27:13-103
+428            android:exported="false" >
+428-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/3425690b17196649318eb513230585a6/transformed/jetified-transport-backend-cct-3.2.0/AndroidManifest.xml:28:13-37
+429            <meta-data
+429-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/3425690b17196649318eb513230585a6/transformed/jetified-transport-backend-cct-3.2.0/AndroidManifest.xml:29:13-31:39
+430                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+430-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/3425690b17196649318eb513230585a6/transformed/jetified-transport-backend-cct-3.2.0/AndroidManifest.xml:30:17-94
+431                android:value="cct" />
+431-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/3425690b17196649318eb513230585a6/transformed/jetified-transport-backend-cct-3.2.0/AndroidManifest.xml:31:17-36
+432        </service>
+433        <service
+433-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/b9cdd40a0a84f5c1c410f65bcf258151/transformed/jetified-transport-runtime-3.2.0/AndroidManifest.xml:24:9-28:19
+434            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+434-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/b9cdd40a0a84f5c1c410f65bcf258151/transformed/jetified-transport-runtime-3.2.0/AndroidManifest.xml:25:13-117
+435            android:exported="false"
+435-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/b9cdd40a0a84f5c1c410f65bcf258151/transformed/jetified-transport-runtime-3.2.0/AndroidManifest.xml:26:13-37
+436            android:permission="android.permission.BIND_JOB_SERVICE" >
+436-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/b9cdd40a0a84f5c1c410f65bcf258151/transformed/jetified-transport-runtime-3.2.0/AndroidManifest.xml:27:13-69
+437        </service>
+438
+439        <receiver
+439-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/b9cdd40a0a84f5c1c410f65bcf258151/transformed/jetified-transport-runtime-3.2.0/AndroidManifest.xml:30:9-32:40
+440            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+440-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/b9cdd40a0a84f5c1c410f65bcf258151/transformed/jetified-transport-runtime-3.2.0/AndroidManifest.xml:31:13-132
+441            android:exported="false" />
+441-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/keyurm.prajapati/.gradle/caches/transforms-3/b9cdd40a0a84f5c1c410f65bcf258151/transformed/jetified-transport-runtime-3.2.0/AndroidManifest.xml:32:13-37
+442    </application>
+443
+444</manifest>

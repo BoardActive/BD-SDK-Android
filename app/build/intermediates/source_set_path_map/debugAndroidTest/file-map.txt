@@ -1,0 +1,4 @@
+com.branddrop.addrop.test.app-androidTest-0 /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/build/generated/res/resValues/androidTest/debug
+com.branddrop.addrop.test.app-mergeDebugAndroidTestResources-1 /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.branddrop.addrop.test.app-mergeDebugAndroidTestResources-2 /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.branddrop.addrop.test.app-merged_res-3 /Users/keyurm.prajapati/Documents/Android Projects/Board Active/SDK App(BA)/BD-SDK-Android/app/build/intermediates/merged_res/debugAndroidTest
