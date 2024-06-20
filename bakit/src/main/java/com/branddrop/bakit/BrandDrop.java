@@ -1877,9 +1877,17 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
 //        }
         // Toast.makeText(mContext, "starting broadcast", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(mContext,GeofenceBroadCastReceiver.class);
+       /* Intent intent = new Intent(mContext,GeofenceBroadCastReceiver.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             geofencePendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, PendingIntent.FLAG_MUTABLE);
+        } else {
+            geofencePendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        }
+        return geofencePendingIntent;*/
+
+        Intent intent = new Intent(mContext, GeofenceBroadCastReceiver.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            geofencePendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
         } else {
             geofencePendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         }

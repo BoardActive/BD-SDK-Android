@@ -2,15 +2,15 @@
   "project_info": {
     "project_number": "267385072538",
     "firebase_url": "https://boardactive-bakit-app.firebaseio.com",
-    "project_id": "branddrop-bakit-app",
-    "storage_bucket": "branddrop-bakit-app.appspot.com"
+    "project_id": "boardactive-bakit-app",
+    "storage_bucket": "boardactive-bakit-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:267385072538:android:4a97b55dc47eca9f",
         "android_client_info": {
-          "package_name": "com.branddrop.bakitapp"
+          "package_name": "com.boardactive.bakitapp"
         }
       },
       "oauth_client": [
