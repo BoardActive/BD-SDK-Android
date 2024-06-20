@@ -1,4 +1,7 @@
-apply plugin: 'com.android.library'
+plugins {
+    id('com.android.library')
+    id('maven-publish')
+}
 
 android {
     namespace 'com.branddrop.bakit'
@@ -27,6 +30,16 @@ android {
     }
 
 }
+
+publishing {
+    publications {
+        register("release",MavenPublication) {
+            afterEvaluate {
+            }
+        }
+    }
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
