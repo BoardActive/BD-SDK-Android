@@ -38,28 +38,17 @@ android {
     }
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.BoardActive'
-            artifactId = 'BD-SDK-Android'
-            version = '3.0.0'
+afterEvaluate {
+    android.libraryVariants.each {
+        publishing.publications.create(it.name, MavenPublication) {
+            from components.findByName(it.name)
 
-            afterEvaluate {
-                from components.release
-            }
+            groupId='com.github.BoardActive'
+            artifactId='BD-SDK-Android'
+            version='3.0.0'
         }
     }
 }
-
-//publishing {
-//    publications {
-//        register("release",MavenPublication) {
-//            afterEvaluate {
-//            }
-//        }
-//    }
-//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
