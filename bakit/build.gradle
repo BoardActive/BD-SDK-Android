@@ -28,18 +28,38 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-}
-
-publishing {
-    publications {
-        register("release",MavenPublication) {
-            afterEvaluate {
+    publishing {
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+                withJavadocJar()
             }
         }
     }
 }
 
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.BoardActive'
+            artifactId = 'BD-SDK-Android'
+            version = '3.0.0'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}
+
+//publishing {
+//    publications {
+//        register("release",MavenPublication) {
+//            afterEvaluate {
+//            }
+//        }
+//    }
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -68,4 +88,5 @@ dependencies {
     }
 
 }
+
 apply plugin: 'com.google.gms.google-services'
