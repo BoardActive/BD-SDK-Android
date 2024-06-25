@@ -1,42 +1,41 @@
 {
   "project_info": {
-    "project_number": "247328967680",
-    "firebase_url": "https://boardactive-addrop.firebaseio.com",
-    "project_id": "boardactive-addrop",
-    "storage_bucket": "boardactive-addrop.appspot.com"
+    "project_number": "717902897693",
+    "firebase_url": "https://boardactive-bakit.firebaseio.com",
+    "project_id": "boardactive-bakit",
+    "storage_bucket": "boardactive-bakit.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:247328967680:android:7582d2671282e70a",
+        "mobilesdk_app_id": "1:717902897693:android:db0bb2c860379de7",
         "android_client_info": {
-          "package_name": "com.boardactive.addrop"
+          "package_name": "com.boardactive.bakit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "247328967680-g9uo7eh609jkod6f66f6beocti8enovb.apps.googleusercontent.com",
+          "client_id": "717902897693-4nl8cou5nc0qm6p7r0i1du66v0bchd3k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD-IdJFpIxA7_3JBveckuO2YK5SYszKT_o"
+          "current_key": "AIzaSyCzaK7Pu6ntsdlnbsacdLdT5Yku7Xs7GDs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "247328967680-g9uo7eh609jkod6f66f6beocti8enovb.apps.googleusercontent.com",
+              "client_id": "717902897693-4nl8cou5nc0qm6p7r0i1du66v0bchd3k.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "247328967680-cp4hvnamn1eng91kjatj0jcrfedc2fhu.apps.googleusercontent.com",
+              "client_id": "717902897693-q07kb5mpd9k0t443t7ih950ulgef352f.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.boardactive.addrop",
-                "app_store_id": "1398475486"
+                "bundle_id": "com.boardactive.bakit"
               }
             }
           ]
@@ -45,72 +44,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:247328967680:android:1dde09c170f3db3e421ce5",
-        "android_client_info": {
-          "package_name": "com.branddrop.addrop"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "247328967680-g9uo7eh609jkod6f66f6beocti8enovb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyD-IdJFpIxA7_3JBveckuO2YK5SYszKT_o"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "247328967680-g9uo7eh609jkod6f66f6beocti8enovb.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "247328967680-cp4hvnamn1eng91kjatj0jcrfedc2fhu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.boardactive.addrop",
-                "app_store_id": "1398475486"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:247328967680:android:9dcf39137b8773f5421ce5",
+        "mobilesdk_app_id": "1:717902897693:android:560bae60322bd303f01cf4",
         "android_client_info": {
           "package_name": "com.branddrop.bakit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "247328967680-g9uo7eh609jkod6f66f6beocti8enovb.apps.googleusercontent.com",
+          "client_id": "717902897693-4nl8cou5nc0qm6p7r0i1du66v0bchd3k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD-IdJFpIxA7_3JBveckuO2YK5SYszKT_o"
+          "current_key": "AIzaSyCzaK7Pu6ntsdlnbsacdLdT5Yku7Xs7GDs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "247328967680-g9uo7eh609jkod6f66f6beocti8enovb.apps.googleusercontent.com",
+              "client_id": "717902897693-4nl8cou5nc0qm6p7r0i1du66v0bchd3k.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "247328967680-cp4hvnamn1eng91kjatj0jcrfedc2fhu.apps.googleusercontent.com",
+              "client_id": "717902897693-q07kb5mpd9k0t443t7ih950ulgef352f.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.boardactive.addrop",
-                "app_store_id": "1398475486"
+                "bundle_id": "com.boardactive.bakit"
               }
             }
           ]

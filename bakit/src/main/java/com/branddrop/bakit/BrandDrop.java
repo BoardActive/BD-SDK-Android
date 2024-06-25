@@ -127,7 +127,8 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
      */
 //    public final static String APP_URL_PROD = "https://api.boardactive.com/mobile/v1/";
     public final static String APP_URL_PROD = "https://api.branddrop.us/mobile/v1/";
-    public final static String APP_URL_DEV = "https://dev-api.branddrop.us/mobile/v1";
+    public final static String APP_URL_DEV = "https://api.branddrop.us/mobile/v1";
+//    public final static String APP_URL_DEV = "https://dev-api.branddrop.us/mobile/v1";
 //    public final static String APP_URL_DEV = "https://dev-api.boardactive.com/mobile/v1/";
     //public final static String APP_URL_DEV = "https://boardactiveapi.dev.radixweb.net/mobile/v1/";
 
