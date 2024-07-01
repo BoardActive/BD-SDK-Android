@@ -13,7 +13,7 @@
 
 - Effectively attribute campaign efficiency by seeing where users go after the impression! 
 
-- Use your BoardActive account to create Places (geo-fenced areas) and Messages (notifications) to deliver custom messages to your app users.
+- Use your BrandDrop account to create Places (geo-fenced areas) and Messages (notifications) to deliver custom messages to your app users.
 
 
 [Click Here to get a BranDrop account](https://app.branddrop.us/login)
@@ -93,16 +93,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Create an instant of BoardActive
+        // Create an instant of BrandDrop
         mBrandDrop = new BrandDrop(getApplicationContext());
 
-        // Add URL to point to BoardActive REST API
-        mBrandDrop.setAppUrl(BoardActive.APP_URL_PROD);
+        // Add URL to point to BrandDrop REST API
+        mBrandDrop.setAppUrl(BrandDrop.APP_URL_PROD);
 
-        // Add AppID provided by BoardActive
+        // Add AppID provided by BrandDrop
         mBrandDrop.setAppId("ADD_APP_ID");
 
-        // Add AppKey provided by BoardActive
+        // Add AppKey provided by BrandDrop
         mBrandDrop.setAppKey("ADD_APP_KEY");
 
         // Add the version of your App
@@ -121,13 +121,13 @@ public class MainActivity extends AppCompatActivity {
 
                         String fcmToken = task.getResult().getToken();
 
-                        // Add Firebase Token to BoardActive
+                        // Add Firebase Token to BrandDrop
                         mBrandDrop.setAppToken(fcmToken);
 
 			//location permission
 		        mBrandDrop.checkLocationPermissions();
 
-                        // Initialize BoardActive
+                        // Initialize BrandDrop
                         mBrandDrop.initialize();
 
                         mBrandDrop.setIsForeground(true);
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
 			updatedCustomAttributes = new HashMap<>();
 			updatedCustomAttributes.put("braves_fan", true);
-			mBrandDrop.putCustomAtrributes(new BoardActive.PutMeCallback() {
+			mBrandDrop.putCustomAtrributes(new BrandDrop.PutMeCallback() {
 			    @Override
 			    public void onResponse(Object value) {
 			    }
