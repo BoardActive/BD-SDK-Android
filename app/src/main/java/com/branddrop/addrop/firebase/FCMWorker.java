@@ -18,7 +18,7 @@ public class FCMWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        Log.d(TAG, "[BAAdDrop] Performing long running task in scheduled job");
+        Log.d(TAG, "[BDAdDrop] Performing long running task in scheduled job");
         // TODO(developer): add long running task here.
         return Result.success();
     }

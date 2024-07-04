@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -127,7 +128,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
      */
 //    public final static String APP_URL_PROD = "https://api.boardactive.com/mobile/v1/";
     public final static String APP_URL_PROD = "https://api.branddrop.us/mobile/v1/";
-    public final static String APP_URL_DEV = "https://api.branddrop.us/mobile/v1";
+    public final static String APP_URL_DEV = "https://api.branddrop.us/mobile/v1/";
 //    public final static String APP_URL_DEV = "https://dev-api.branddrop.us/mobile/v1";
 //    public final static String APP_URL_DEV = "https://dev-api.boardactive.com/mobile/v1/";
     //public final static String APP_URL_DEV = "https://boardactiveapi.dev.radixweb.net/mobile/v1/";
@@ -479,7 +480,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
             }
             if (!serviceIsRunningInForeground(mContext)) {
                 Intent serviceIntent = new Intent(mContext, LocationUpdatesService.class);
-                serviceIntent.putExtra("appName",appName);
+                serviceIntent.putExtra("appName", appName);
                 ContextCompat.startForegroundService(mContext, serviceIntent);
                 /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     mContext.startForegroundService(serviceIntent);
@@ -624,107 +625,108 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
      */
 
     public void registerDevice(final PostRegisterCallback callback) {
-            RequestQueue queue = AppSingleton.getInstance(mContext).getRequestQueue();
+        RequestQueue queue = AppSingleton.getInstance(mContext).getRequestQueue();
 
-            VolleyLog.DEBUG = true;
-            String uri = SharedPreferenceHelper.getString(mContext, BAKIT_URL, null) + "me";
+        VolleyLog.DEBUG = true;
+        String uri = SharedPreferenceHelper.getString(mContext, BAKIT_URL, null) + "me";
 
-            StringRequest str = new StringRequest(Request.Method.PUT, uri, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Log.d(TAG, "[BAKit] RegisterDevice onResponse: " + response.toString());
-                    VolleyLog.wtf(response);
-                    JSONObject json = null;
-                    Boolean isActive=false;
-                    try {
-                        json = new JSONObject(response);
-                         isActive = json.getBoolean("isActive");
-                        if (isActive) {
-                            SharedPreferenceHelper.putString(mContext, Constants.APP_STATUS, "Enable");
-                        } else {
-                            SharedPreferenceHelper.putString(mContext, Constants.APP_STATUS, "Disable");
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+        StringRequest str = new StringRequest(Request.Method.PUT, uri, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "[BAKit] RegisterDevice onResponse: " + response.toString());
+                VolleyLog.wtf(response);
+                JSONObject json = null;
+                Boolean isActive = false;
+                try {
+                    json = new JSONObject(response);
+                    isActive = json.getBoolean("isActive");
+                    if (isActive) {
+                        SharedPreferenceHelper.putString(mContext, Constants.APP_STATUS, "Enable");
+                    } else {
+                        SharedPreferenceHelper.putString(mContext, Constants.APP_STATUS, "Disable");
                     }
-                    callback.onResponse(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    String readableError = handleServerError(error);
-                    Log.d(TAG, readableError);
-                    callback.onResponse(readableError);
-                }
-            }) {
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                String readableError = handleServerError(error);
+                Log.d(TAG, readableError);
+                callback.onResponse(readableError);
+            }
+        }) {
 
-                @Override
-                public Priority getPriority() {
-                    return Priority.HIGH;
-                }
+            @Override
+            public Priority getPriority() {
+                return Priority.HIGH;
+            }
 
 
-                @Override
-                public byte[] getBody() throws AuthFailureError {
-                    try {
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                try {
 
-                        Attributes attributes = new Attributes();
-                        Stock stock = new Stock();
+                    Attributes attributes = new Attributes();
+                    Stock stock = new Stock();
 
-                        /** Check for Location permission. If not then prompt to ask */
-                        int permissionState = ActivityCompat.checkSelfPermission(mContext,
-                                Manifest.permission.ACCESS_FINE_LOCATION);
+                    /** Check for Location permission. If not then prompt to ask */
+                    int permissionState = ActivityCompat.checkSelfPermission(mContext,
+                            Manifest.permission.ACCESS_FINE_LOCATION);
 
-                        if (permissionState != PackageManager.PERMISSION_GRANTED) {
-                            stock.setLocationPermission("false");
-                        } else {
-                            stock.setLocationPermission("true");
-                        }
-
-                        if (NotificationManagerCompat.from(mContext).areNotificationsEnabled())
-                            stock.setNotificationPermission("true");
-                        else
-                            stock.setNotificationPermission("false");
-                        Calendar cal = Calendar.getInstance();
-                        cal.setTimeZone(TimeZone.getTimeZone("UTC"));
-                        stock.setDateLastOpenedApp(getLocalToUTCDate(cal.getTime()));
-                        attributes.setStock(stock);
-
-                        MeRequest meRequest = new MeRequest();
-                        meRequest.setEmail("");
-                        meRequest.setDeviceOS(SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS, null));
-                        meRequest.setDeviceOSVersion(SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS_VERSION, null));
-                        Calendar cal1 = Calendar.getInstance();
-                        meRequest.setDateLastOpenedApp(getLocalToUTCDate(cal1.getTime()));
-                        meRequest.setAttributes(attributes);
-
-                        //parse request object to json format and send as request body
-                        return gson.toJson(meRequest).getBytes();
-                    } catch (Exception e) {
-                        Log.e(TAG, "error parsing request body to json");
+                    if (permissionState != PackageManager.PERMISSION_GRANTED) {
+                        stock.setLocationPermission("false");
+                    } else {
+                        stock.setLocationPermission("true");
                     }
 
+                    if (NotificationManagerCompat.from(mContext).areNotificationsEnabled())
+                        stock.setNotificationPermission("true");
+                    else
+                        stock.setNotificationPermission("false");
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTimeZone(TimeZone.getTimeZone("UTC"));
+                    stock.setDateLastOpenedApp(getLocalToUTCDate(cal.getTime()));
+                    attributes.setStock(stock);
 
-                    return super.getBody();
+                    MeRequest meRequest = new MeRequest();
+                    meRequest.setEmail("");
+                    meRequest.setDeviceOS(SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS, null));
+                    meRequest.setDeviceOSVersion(SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS_VERSION, null));
+                    Calendar cal1 = Calendar.getInstance();
+                    meRequest.setDateLastOpenedApp(getLocalToUTCDate(cal1.getTime()));
+                    meRequest.setAttributes(attributes);
+
+                    //parse request object to json format and send as request body
+                    return gson.toJson(meRequest).getBytes();
+                } catch (Exception e) {
+                    Log.e(TAG, "error parsing request body to json");
                 }
 
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    return GenerateHeaders();
-                }
-                //            @Override
-                //            protected Map<String, String> getParams() {
-                //                Map<String, String> params = new HashMap<String, String>();
-                //                params.put("email", SharedPreferenceHelper.getString(mContext, BAKIT_USER_EMAIL, null));
-                //                params.put("deviceOS", SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS, null));
-                //                params.put("deviceOSVersion", SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS_VERSION, null));
-                //                Log.d(TAG, "[BAKit] RegisterDevice params: " + params.toString());
-                //                return params;
-                //            }
-            };
 
-            queue.add(str);
+                return super.getBody();
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return GenerateHeaders();
+            }
+            //            @Override
+            //            protected Map<String, String> getParams() {
+            //                Map<String, String> params = new HashMap<String, String>();
+            //                params.put("email", SharedPreferenceHelper.getString(mContext, BAKIT_USER_EMAIL, null));
+            //                params.put("deviceOS", SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS, null));
+            //                params.put("deviceOSVersion", SharedPreferenceHelper.getString(mContext, BAKIT_DEVICE_OS_VERSION, null));
+            //                Log.d(TAG, "[BAKit] RegisterDevice params: " + params.toString());
+            //                return params;
+            //            }
+        };
+
+        queue.add(str);
     }
+
     public String getLocalToUTCDate(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -1245,9 +1247,6 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
     public void
 
 
-
-
-
     postLocation(final PostLocationCallback callback, final Double latitude, final Double longitude, final String deviceTime) {
         setLatitude(latitude.toString());
         setLongitude(longitude.toString());
@@ -1581,14 +1580,33 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
     }
 
     public void checkLocationPermissions() {
-        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(mContext, RequestPermissionActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            mContext.startActivity(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (!checkLocationPermission()) {
+                ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(mContext, RequestPermissionActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
+            }
         }
-
     }
+
+    public boolean checkLocationPermission() {
+        // Check for both foreground and background permissions
+        int fineLocationPermission = ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION);
+        int backgroundLocationPermission = ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_BACKGROUND_LOCATION);
+        return fineLocationPermission == PackageManager.PERMISSION_GRANTED && backgroundLocationPermission == PackageManager.PERMISSION_GRANTED;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    public boolean checkNotificationPermission() {
+        return ContextCompat.checkSelfPermission(mContext, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED;
+    }
+
+
     public void checkNotificationPermissions() {
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_NOTIFICATION_POLICY) != PackageManager.PERMISSION_GRANTED) {
@@ -1667,8 +1685,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                         setPastLatitude(latitude);
                         setPastLongitude(longitude);
                     }
-                    if(getPastLatitude() != null && getPastLongitude() != null)
-                    {
+                    if (getPastLatitude() != null && getPastLongitude() != null) {
                         if (Double.parseDouble(getPastLatitude()) != latitude && Double.parseDouble(getPastLongitude()) != longitude) {
                             if (!Constants.FIRST_TIME_GET_GEOFENCE) {
                                 Constants.FIRST_TIME_GET_GEOFENCE = true;
@@ -1724,7 +1741,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                         double longitude = location.getLongitude();
                         Log.e("last location", "" + latitude);
                         Log.e("last location long", "" + longitude);
-                       // setPastLatitude(location.getLatitude());
+                        // setPastLatitude(location.getLatitude());
                         //setPastLongitude(location.getLongitude());
                     } else {
                         Log.d("TAG", "location is null");
@@ -1895,7 +1912,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
         return geofencePendingIntent;
     }
 
-    public void removeGeofence(Context context, String id,Boolean iscomesFromBroadcast) {
+    public void removeGeofence(Context context, String id, Boolean iscomesFromBroadcast) {
         geofencingClient.removeGeofences(Collections.singletonList(id))
                 .addOnSuccessListener(aVoid -> {
                     //     Toast.makeText(context, "Geofencing has been removed", Toast.LENGTH_SHORT).show();
@@ -1925,18 +1942,18 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                             GeofenceLocationModel geofenceLocationModel = gson.fromJson(jobject, GeofenceLocationModel.class);
                             locationList.clear();
                             locationList = new ArrayList<>();
-                            ArrayList<LatLng>  arrayListLatLng = new ArrayList<LatLng>();
+                            ArrayList<LatLng> arrayListLatLng = new ArrayList<LatLng>();
 //                            for (int j = 0; j < geofenceLocationModel.getData().size(); j++) {
 //                                GeoData geoData = geofenceLocationModel.getData().get(j);
 //                                if (getGeofencePendingIntent() != null) {
 //                                    removeGeofence(mContext, geoData.getId().toString());
 //                                }
 //                            }
-                                ArrayList<Double> distanceList = new ArrayList<Double>();
+                            ArrayList<Double> distanceList = new ArrayList<Double>();
                             for (int j = 0; j < geofenceLocationModel.getData().size(); j++) {
                                 GeoData geoData = geofenceLocationModel.getData().get(j);
                                 if (getGeofencePendingIntent() != null) {
-                                    removeGeofence(mContext, geoData.getId().toString(),false);
+                                    removeGeofence(mContext, geoData.getId().toString(), false);
                                 }
                                 for (int i = 0; i < geoData.getCoordinates().size(); i++) {
                                     Coordinate locationModel = geoData.getCoordinates().get(i);
@@ -1944,9 +1961,9 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                                     locationModel.setId(geoData.getId());
                                     locationModel.setType(geoData.getType());
 
-                                    if(locationModel.getType().equals("polygon")){
-                                        arrayListLatLng.add(new LatLng(Double.parseDouble(geoData.getCoordinates().get(i).getLatitude()),Double.parseDouble(geoData.getCoordinates().get(i).getLongitude())));
-                                       Log.e( "",String.valueOf(computeCentroid(arrayListLatLng).latitude +""+String.valueOf(computeCentroid(arrayListLatLng).longitude)));
+                                    if (locationModel.getType().equals("polygon")) {
+                                        arrayListLatLng.add(new LatLng(Double.parseDouble(geoData.getCoordinates().get(i).getLatitude()), Double.parseDouble(geoData.getCoordinates().get(i).getLongitude())));
+                                        Log.e("", String.valueOf(computeCentroid(arrayListLatLng).latitude + "" + String.valueOf(computeCentroid(arrayListLatLng).longitude)));
                                         Location coordinateLatLng = new Location(LocationManager.GPS_PROVIDER);
                                         coordinateLatLng.setLatitude(Double.parseDouble(geoData.getCoordinates().get(i).getLatitude()));
                                         coordinateLatLng.setLongitude(Double.parseDouble(geoData.getCoordinates().get(i).getLongitude()));
@@ -1962,7 +1979,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                                         locationModel.setRadius(geoData.getRadius());
 
                                     } else {
-                                        if(Collections.max(distanceList)>0.0){
+                                        if (Collections.max(distanceList) > 0.0) {
                                             locationModel.setRadius(Collections.max(distanceList).intValue());
                                         }
 
@@ -1996,8 +2013,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
 
                     }
                 });
-            }
-            else {
+            } else {
                 setUpRegion();
 
             }
@@ -2143,6 +2159,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
             e.printStackTrace();
         }
     }
+
     private boolean isPointInPolygon(LatLng tap, ArrayList<LatLng> vertices) {
         int intersectCount = 0;
         for (int j = 0; j < vertices.size() - 1; j++) {
@@ -2186,8 +2203,9 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
             longitude += point.longitude;
         }
 
-        return new LatLng(latitude/n, longitude/n);
-    }}
+        return new LatLng(latitude / n, longitude / n);
+    }
+}
 
 
 
