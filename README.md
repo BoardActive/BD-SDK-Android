@@ -827,13 +827,42 @@ public class MessageModel implements Parcelable {
 #### Add to your AndroidManifest.xml
 
 ```xml
-     <service
+
+	<uses-permission android:name="android.permission.INTERNET" />
+
+	<application
+	   ...
+	   android:name="BrandDropApp">
+
+	<meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <receiver
+            android:name="com.branddrop.bakit.GeofenceBroadCastReceiver"
+            android:allowBackup="true"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name="com.branddrop.bakit.LocationUpdatesService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+     	<service
           android:name="com.branddrop.addrop.firebase.FCMService"
           android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-     </service>
+     	</service>
 ```
 
 ## How to use the BrandDrop SDK
