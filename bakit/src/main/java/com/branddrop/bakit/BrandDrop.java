@@ -1579,10 +1579,10 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
 
     }
 
-    public void checkLocationPermissions() {
+    public void checkLocationPermissions(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (!checkLocationPermission()) {
-                ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
+                ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
             }
         } else {
             if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED

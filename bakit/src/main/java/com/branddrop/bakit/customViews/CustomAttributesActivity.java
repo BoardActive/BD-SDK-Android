@@ -66,17 +66,12 @@ public class CustomAttributesActivity extends AppCompatActivity implements Click
         mBrandDrop.setAppUrl(url);
 
         // Add AppID provided by BoardActive
-//        mBrandDrop.setAppId("346");
         mBrandDrop.setAppId("2403");
 
         // Add AppKey provided by BoardActive
-        //mBoardActive.setAppKey("ef748553-e55a-4cb4-b339-7813e395a5b1");
-//        mBrandDrop.setAppKey("63e93e07-7ee5-4491-91e9-e2ab93786646");
         mBrandDrop.setAppKey("77dbdde2-4361-47a0-8fb2-821d981cfd35");
         // Add the version of your App
         mBrandDrop.setAppVersion("1.0.0");
-
-//        mStockAttributes = new Stock();
 
         mBrandDrop.getAttributes(new BrandDrop.GetMeCallback() {
             @Override

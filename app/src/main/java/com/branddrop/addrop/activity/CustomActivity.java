@@ -74,10 +74,10 @@ public class  CustomActivity extends AppCompatActivity {
         mBrandDrop.setAppUrl(BrandDrop.APP_URL_DEV);
 
         // Add AppID provided by BoardActive
-        mBrandDrop.setAppId("346");
+        mBrandDrop.setAppId("2403");
 
         // Add AppKey provided by BoardActive
-        mBrandDrop.setAppKey("bb85c28a-0ac4-439d-ad9c-5527be3cafdd");
+        mBrandDrop.setAppKey("77dbdde2-4361-47a0-8fb2-821d981cfd35");
 
         // Add the version of your App
         mBrandDrop.setAppVersion("1.0.0");

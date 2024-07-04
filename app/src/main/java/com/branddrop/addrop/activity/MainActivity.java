@@ -178,29 +178,9 @@ public class MainActivity extends AppCompatActivity {
         //mBoardActive.setAppUrl(BoardActive.APP_URL_PROD); // Production
         mBrandDrop.setAppUrl(BrandDrop.APP_URL_DEV); // Development
 
-        // Add AppID provided by BoardActive
-        // mBoardActive.setAppId("ADD_APP_ID");
-
-//        mBrandDrop.setAppId("346");
-
-        // Keyur :
         mBrandDrop.setAppId("2403");
-//        mBrandDrop.setAppKey("be1ee020-8d08-40e8-a3ea-d028d5533519");
+
         mBrandDrop.setAppKey("77dbdde2-4361-47a0-8fb2-821d981cfd35");
-
-
-        // Add AppKey provided by BoardActive
-//        mBoardActive.setAppKey("ADD_APP_KEY");
-        // mBoardActive.setAppKey("ef748553-e55a-4cb4-b339-7813e395a5b1");
-        //mBoardActive.setAppKey("88fd530b-c111-4077-a1d3-ad0a24b127fd");
-        //    mBoardActive.setAppKey("f3b64b8b-84e7-4eae-869a-9b9da7981725");
-        //mBoardActive.setAppKey("d17f0feb-4f96-4c2a-83fd-fd6302ae3a16");
-        // mBoardActive.setAppKey("f6947f91-740f-4ce2-9620-73a91316d289");
-        // mBoardActive.setAppKey("63e93e07-7ee5-4491-91e9-e2ab93786646");
-//        mBrandDrop.setAppKey("fe8c3310-498c-4fd0-b3df-ea430d9a8084");
-        //   mBoardActive.setAppKey("355cd7b8-e355-4b07-916c-67a4eb2360ab");
-        //mBoardActive.setAppKey("474c7aef-83fd-411e-8a83-e781ef5f3dff");
-        // mBoardActive.setAppKey(BoardActive.BAKIT_APP_KEY);
 
         // Add the version of your App
         mBrandDrop.setAppVersion("1.0.0");
@@ -256,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
                         mBrandDrop.setIsForeground(true);
 
                         // Check for Location permissions
-                        mBrandDrop.checkLocationPermissions();
+                        mBrandDrop.checkLocationPermissions(getParent());
                         mBrandDrop.checkNotificationPermissions();
 
                         // Initialize BoardActive
