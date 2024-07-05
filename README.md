@@ -150,7 +150,7 @@ public class NotificationBuilder extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap result) {
         super.onPostExecute(result);
-        String channelId = "BrandDropApp";
+        String channelId = mContext.getString(R.string.default_notification_channel_id);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder;
 
@@ -295,7 +295,7 @@ public class NotificationBuilder extends AsyncTask<String, Void, Bitmap> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(channelId,
                     "Channel human readable title",
-                    NotificationManager.IMPORTANCE_DEFAULT);
+                    NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(channel);
 
         }
@@ -467,7 +467,7 @@ public class FCMService extends FirebaseMessagingService {
                          PendingIntent.FLAG_MUTABLE);
 
                 int notificationType = 0;
-                new com.branddrop.addrop.firebase.NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
+                new NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
             }else
             {
                 int requestCode = new Random().nextInt();
@@ -476,7 +476,7 @@ public class FCMService extends FirebaseMessagingService {
                         PendingIntent.FLAG_UPDATE_CURRENT);
 
                 int notificationType = 0;
-                new com.branddrop.addrop.firebase.NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
+                new NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
             }
         }
     }
