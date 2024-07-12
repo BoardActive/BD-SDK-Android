@@ -150,7 +150,7 @@ public class NotificationBuilder extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap result) {
         super.onPostExecute(result);
-        String channelId = "BrandDropApp";
+        String channelId = mContext.getString(R.string.default_notification_channel_id);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder;
 
@@ -295,7 +295,7 @@ public class NotificationBuilder extends AsyncTask<String, Void, Bitmap> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(channelId,
                     "Channel human readable title",
-                    NotificationManager.IMPORTANCE_DEFAULT);
+                    NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(channel);
 
         }
@@ -467,7 +467,7 @@ public class FCMService extends FirebaseMessagingService {
                          PendingIntent.FLAG_MUTABLE);
 
                 int notificationType = 0;
-                new com.branddrop.addrop.firebase.NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
+                new NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
             }else
             {
                 int requestCode = new Random().nextInt();
@@ -476,7 +476,7 @@ public class FCMService extends FirebaseMessagingService {
                         PendingIntent.FLAG_UPDATE_CURRENT);
 
                 int notificationType = 0;
-                new com.branddrop.addrop.firebase.NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
+                new NotificationBuilder(this,pendingIntent, obj, notificationType,isSilent).execute();
             }
         }
     }
@@ -827,13 +827,42 @@ public class MessageModel implements Parcelable {
 #### Add to your AndroidManifest.xml
 
 ```xml
-     <service
+
+	<uses-permission android:name="android.permission.INTERNET" />
+
+	<application
+	   ...
+	   android:name="BrandDropApp">
+
+	<meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <receiver
+            android:name="com.branddrop.bakit.GeofenceBroadCastReceiver"
+            android:allowBackup="true"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service
+            android:name="com.branddrop.bakit.LocationUpdatesService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+     	<service
           android:name="com.branddrop.addrop.firebase.FCMService"
           android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-     </service>
+     	</service>
 ```
 
 ## How to use the BrandDrop SDK
@@ -868,59 +897,57 @@ public class MainActivity extends AppCompatActivity {
         mBrandDrop.setAppVersion("1.0.0");
 
         // Get Firebase Token
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+	FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.w(TAG, "getInstanceId failed", task.getException());
+                return;
+            }
+
+            String fcmToken = task.getResult();
+
+            // Add Firebase Token to BoardActive
+            mBrandDrop.setAppToken(fcmToken);
+
+            //location permission
+            mBrandDrop.checkLocationPermissions();
+
+            // Initialize BoardActive
+            mBrandDrop.initialize();
+
+            mBrandDrop.setIsForeground(true);
+            mBrandDrop.StartWorker(getResources().getString(R.string.app_name) + " ");
+
+            // Register the device with BrandDrop
+            try {
+                mBrandDrop.registerDevice(new BrandDrop.PostRegisterCallback() {
                     @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "getInstanceId failed", task.getException());
-                            return;
-                        }
-
-                        String fcmToken = task.getResult().getToken();
-
-                        mBrandDrop.setAppToken(fcmToken);
-
-			//location permission
-		        mBrandDrop.checkLocationPermissions();
-
-                        mBrandDrop.initialize();
-
-                        mBrandDrop.setIsForeground(true);
-                        mBrandDrop.StartWorker(getResources().getString(R.string.app_name)+" ");
-
-                        // Register the device with BrandDrop
+                    public void onResponse(Object value) {
+                        Log.d(TAG, value.toString());
+                        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).setLenient().create();
                         try {
-                            mBrandDrop.registerDevice(new BrandDrop.PostRegisterCallback() {
-                                @Override
-                                public void onResponse(Object value) {
-                                    Log.d(TAG, value.toString());
-                                    Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).setLenient().create();
-                                    try {
-                                        JsonParser parser = new JsonParser();
-                                        JsonElement je = parser.parse(value.toString());
+                            JsonParser parser = new JsonParser();
+                            JsonElement je = parser.parse(value.toString());
 
-                                        Log.d(TAG, gson.toJson(je));
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-                            });
+                            Log.d(TAG, gson.toJson(je));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
 
-                       // update custom attributes stuff
-			updatedCustomAttributes = new HashMap<>();
-			updatedCustomAttributes.put("braves_fan", true);
-			mBrandDrop.putCustomAtrributes(new BrandDrop.PutMeCallback() {
-			    @Override
-			    public void onResponse(Object value) {
-			    }
-			}, updatedCustomAttributes);
-	         }
-	});
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // update custom attributes stuff
+            updatedCustomAttributes = new HashMap<>();
+            updatedCustomAttributes.put("braves_fan", true);
+            mBrandDrop.putCustomAtrributes(new BrandDrop.PutMeCallback() {
+                @Override
+                public void onResponse(Object value) {
+                }
+            }, updatedCustomAttributes);
+        });
 
         if (getIntent().getExtras() != null) {
             isAllowImage = getIntent().getBooleanExtra("isAllowImage", false);
