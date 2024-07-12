@@ -829,6 +829,9 @@ public class MessageModel implements Parcelable {
 ```xml
 
 	<uses-permission android:name="android.permission.INTERNET" />
+  	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    	<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    	<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
 	<application
 	   ...
@@ -879,6 +882,10 @@ public class MainActivity extends AppCompatActivity {
     String imageUrl = "";
     HashMap<String,Object> updatedCustomAttributes;
 
+    private static final int LOCATION_PERMISSION_CODE = 12;
+    private static final int BACKGROUND_LOCATION_PERMISSION_CODE = 13;
+    public final static int MY_NOTIFICATION_CODE = 22;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -895,6 +902,9 @@ public class MainActivity extends AppCompatActivity {
         mBrandDrop.setAppKey("ADD_APP_KEY");
 
         mBrandDrop.setAppVersion("1.0.0");
+
+	// Check the Location & Notification Permission
+	checkPermission();
 
         // Get Firebase Token
 	FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
@@ -961,6 +971,127 @@ public class MainActivity extends AppCompatActivity {
                 imageUrl = getIntent().getStringExtra("key.IMAGE_URL");
             }
         }
+    }
+
+    private void checkPermission() {
+	        if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+	            // Fine Location permission is granted
+	            // Check if current android version >= 11, if >= 11 check for Background Location permission
+	            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+	                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+	                    // Background Location Permission is granted so do your work here
+	                } else {
+	                    // Ask for Background Location Permission
+	                    askPermissionForBackgroundUsage();
+	                }
+	            }
+	        } else {
+	            // Fine Location Permission is not granted so ask for permission
+	            askForLocationPermission();
+	        }
+    }
+
+       private void askForLocationPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission Needed!")
+                    .setMessage("Location Permission Needed!")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(MainActivity.this,
+                                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Permission is denied by the user
+                        }
+                    })
+                    .create().show();
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+        }
+    }
+
+    private void askPermissionForBackgroundUsage() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission Needed!")
+                    .setMessage("Background Location Permission Needed!, tap \"Allow all time in the next screen\"")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(MainActivity.this,
+                                    new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, BACKGROUND_LOCATION_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // User declined for Background Location Permission.
+                        }
+                    })
+                    .create().show();
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, BACKGROUND_LOCATION_PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == LOCATION_PERMISSION_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // User granted location permission
+                // Now check if android version >= 11, if >= 11 check for Background Location Permission
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        // Background Location Permission is granted so do your work here
+                    } else {
+                        // Ask for Background Location Permission
+                        askPermissionForBackgroundUsage();
+                    }
+                }
+            } else {
+                // User denied location permission
+            }
+        } else if (requestCode == BACKGROUND_LOCATION_PERMISSION_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // User granted for Background Location Permission.
+                request_notification_api13_permission();
+            } else {
+                // User declined for Background Location Permission.
+            }
+        } else if (requestCode == MY_NOTIFICATION_CODE) {
+            if (grantResults.length > 0)
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission granted, perform required code
+
+                } else {
+
+                    // not granted
+                }
+        }
+    }
+
+    private void request_notification_api13_permission() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_DENIED) {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, MY_NOTIFICATION_CODE);
+                }
+            }
+
+        } catch (Exception e) {
+
+        }
+
     }
 
     private void showAlert(String title, String message, Context context) {
