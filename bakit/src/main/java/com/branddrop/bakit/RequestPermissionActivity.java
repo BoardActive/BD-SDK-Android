@@ -3,6 +3,7 @@ package com.branddrop.bakit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
 import androidx.work.BackoffPolicy;
 import androidx.work.Constraints;
@@ -138,30 +139,11 @@ public class RequestPermissionActivity extends AppCompatActivity {
 
     private void StartWorker(boolean isForeground) {
         Log.d(TAG, "[BrandDrop]  StartWorker()");
-//        Constraints constraints = new Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build();
-//
-//        PeriodicWorkRequest periodicWork = new PeriodicWorkRequest.Builder(LocationWorker.class, repeatInterval, TimeUnit.MINUTES)
-//                .addTag(TAG)
-//                .setConstraints(constraints)
-//                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL,
-//                        2,
-//                        TimeUnit.MINUTES)
-//                .build();
-//        WorkManager.getInstance(this).enqueueUniquePeriodicWork(FETCH_LOCATION_WORKER_NAME, ExistingPeriodicWorkPolicy.REPLACE, periodicWork);
-//        SharedPreferenceHelper.putBoolean(this, IS_FOREGROUND, isForeground);
 
         if (isForeground) {
             WorkManager.getInstance(this).cancelAllWork();
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)  {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return;
             }
             if (!serviceIsRunningInForeground(this)) {

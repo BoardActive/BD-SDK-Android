@@ -9,11 +9,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
-
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -54,12 +54,18 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.ActivityRecognition;
+import com.google.android.gms.location.ActivityRecognitionClient;
+import com.google.android.gms.location.ActivityRecognitionResult;
+import com.google.android.gms.location.DetectedActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
+import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
@@ -67,6 +73,7 @@ import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -206,6 +213,10 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                 .addOnConnectionFailedListener(this).build();
         geofencingClient = LocationServices.getGeofencingClient(mContext);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(mContext);
+        // Initialize the accelerometer
+//        SensorManager sensorManager = getSystemService(mContext, SensorManager.class);
+//        Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
     }
 
     /**
@@ -1617,6 +1628,52 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
 
     }
 
+    LocationCallback locationCallback = new LocationCallback() {
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            if (locationResult == null) {
+                return;
+            }
+            for (Location location : locationResult.getLocations()) {
+                Log.d(TAG, "location lat/lng: " + location.getLatitude() + " " + location.getLongitude());
+                latitude = location.getLatitude();
+                longitude = location.getLongitude();
+                setLatitude("" + latitude);
+                setLongitude("" + longitude);
+                Log.e("lat BrandDrop", "" + latitude);
+                Log.e("long BrandDrop", "" + longitude);
+
+                if (getPastLongitude() == null && getPastLatitude() == null) {
+                    setPastLatitude(latitude);
+                    setPastLongitude(longitude);
+                }
+                if (getPastLatitude() != null && getPastLongitude() != null) {
+                    if (Double.parseDouble(getPastLatitude()) != latitude && Double.parseDouble(getPastLongitude()) != longitude) {
+                        if (!Constants.FIRST_TIME_GET_GEOFENCE) {
+                            Constants.FIRST_TIME_GET_GEOFENCE = true;
+                            getLocationList();
+                        }
+                        Location temp = new Location(LocationManager.GPS_PROVIDER);
+                        temp.setLatitude(Double.parseDouble(getPastLatitude()));
+                        temp.setLongitude(Double.parseDouble(getPastLongitude()));
+                        Log.e("distance", "" + location.distanceTo(temp));
+
+                        Log.d(TAG, "PassLoc lat/lng: " + getPastLatitude() + " " + getPastLongitude());
+                        if (location.distanceTo(temp) > Constants.DISTANCE) {
+                            setPastLatitude(location.getLatitude());
+                            setPastLongitude(location.getLongitude());
+                            Log.e("new lat", getPastLatitude());
+                            Log.e("new lat", getPastLongitude());
+                            Log.e("enter into distance", "enter into distance");
+                            setLocationArrayList(null);
+                            getLocationList();
+                        }
+                    }
+                }
+            }
+        }
+    };
+
     public void setupLocationRequest() {
         mLocationRequest = new LocationRequest();
         // Sets the desired interval for active location updates. This interval is
@@ -1628,6 +1685,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
         // application will never receive updates faster than this value.
         mLocationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
                 .addLocationRequest(mLocationRequest);
         builder.setAlwaysShow(true); // this is the key ingredient
@@ -1670,7 +1728,10 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
         if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
         } else {
-            LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, mLocationRequest, new LocationListener() {
+
+//            startLocationUpdates();
+
+            /*LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, mLocationRequest, new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
                     Log.d(TAG, "location lat/lng: " + location.getLatitude() + " " + location.getLongitude());
@@ -1678,8 +1739,8 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                     longitude = location.getLongitude();
                     setLatitude("" + latitude);
                     setLongitude("" + longitude);
-                    Log.e("lat", "" + latitude);
-                    Log.e("long", "" + longitude);
+                    Log.e("lat BrandDrop OLD ", "" + latitude);
+                    Log.e("long BrandDrop OLD", "" + longitude);
 
                     if (getPastLongitude() == null && getPastLatitude() == null) {
                         setPastLatitude(latitude);
@@ -1715,22 +1776,26 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                     }
 
                 }
-            });
+            });*/
         }
+    }
 
+    public void startLocationUpdates() {
+        try {
+            fusedLocationClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.getMainLooper());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void stopLocationUpdates() {
+        fusedLocationClient.removeLocationUpdates(locationCallback);
     }
 
     public void getLastLocation() {
         try {
             FusedLocationProviderClient mLocationProvider = LocationServices.getFusedLocationProviderClient(mContext);
             if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return;
             }
             mLocationProvider.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
@@ -1739,8 +1804,8 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                     if (location != null) {
                         double latitude = location.getLatitude();
                         double longitude = location.getLongitude();
-                        Log.e("last location", "" + latitude);
-                        Log.e("last location long", "" + longitude);
+                        Log.e("last latitude", "" + latitude);
+                        Log.e("last longitude", "" + longitude);
                         // setPastLatitude(location.getLatitude());
                         //setPastLongitude(location.getLongitude());
                     } else {
@@ -1887,7 +1952,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
         return builder.build();
     }
 
-    private PendingIntent getGeofencePendingIntent() {
+    public PendingIntent getGeofencePendingIntent() {
 
         // Reuse the PendingIntent if we already have it.
 //        if (geofencePendingIntent != null) {

@@ -7,11 +7,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.os.Build;
 import android.util.Log;
 
 import androidx.work.WorkManager;
 
 import com.branddrop.bakit.Tools.SharedPreferenceHelper;
+import com.google.android.gms.location.ActivityRecognitionResult;
+import com.google.android.gms.location.DetectedActivity;
 import com.google.android.gms.location.LocationResult;
 
 import java.text.DateFormat;
@@ -27,8 +30,9 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
     private static final String IS_FOREGROUND = "isforeground";
     private BrandDrop mBrandDrop;
     private Context context;
-    public static   Location firstLocation;
-    int count=0;
+    public static Location firstLocation;
+    int count = 0;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context = context;
@@ -36,16 +40,39 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
             mBrandDrop = new BrandDrop(context.getApplicationContext());
             final String action = intent.getAction();
             if (ACTION_PROCESS_UPDATES.equals(action)) {
+
                 getLocationUpdates(context, intent);
+
+                ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
+                if (result != null) {
+                    Log.d(TAG, "Detected activity: " + result.getMostProbableActivity().getType());
+                    handleActivityResult(context, result.getMostProbableActivity());
+                }
             }
         }
-
     }
 
+    private void handleActivityResult(Context context, DetectedActivity result) {
+        Intent serviceIntent = new Intent(context, LocationUpdatesService.class);
+        if (result.getType() == DetectedActivity.STILL) {
+            Log.d(TAG, "Device is still, stopping location updates");
+            serviceIntent.setAction(LocationUpdatesService.ACTION_STOP_SERVICE);
+        } else {
+            Log.d(TAG, "Device is moving, continuing location updates");
+            // Start service without any action, which will continue location updates
+            serviceIntent.setAction(LocationUpdatesService.ACTION_START_SERVICE);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.startForegroundService(serviceIntent);
+        } else {
+            context.startService(serviceIntent);
+        }
+    }
 
     @SuppressLint("MissingPermission")
     public void getLocationUpdates(final Context context, final Intent intent) {
-       // Log.e("enter into lcoation","enter");
+        // Log.e("enter into lcoation","enter");
 
         LocationResult result = LocationResult.extractResult(intent);
         if (result != null) {
@@ -53,11 +80,8 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
             List<Location> locations = result.getLocations();
 
             if (locations.size() > 0) {
-                 firstLocation = locations.get(0);
-                 Log.e("firstlocation","lat"+firstLocation.getLatitude() +"long"+firstLocation.getLongitude());
-
-
-
+                firstLocation = locations.get(0);
+                Log.e("firstlocation", "lat ===> " + firstLocation.getLatitude() + "long ===> " + firstLocation.getLongitude());
 //                if (mBoardActive.getPastLongitude() == null && mBoardActive.getPastLatitude() == null) {
 //                    mBoardActive.setPastLatitude(firstLocation.getLatitude());
 //                    mBoardActive.setPastLongitude(firstLocation.getLongitude());
@@ -140,11 +164,10 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
 //
 //                    }
 //                }
-
                 updateLocation(context, firstLocation);
             }
         } else {
-            // An additional check to start worker by checking the location permissions in case locations are not being retreived.
+            // An additional check to start worker by checking the location permissions in case locations are not being retrieved.
             if (PermissionExceptionHandler.with(context).wantToStartWorker()) {
                 if (!SharedPreferenceHelper.getBoolean(context, IS_FOREGROUND, false))
                     startWorker();
@@ -153,18 +176,19 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
             }
         }
     }
-    public void saveLocation(Location location){
+
+    public void saveLocation(Location location) {
         ArrayList<Location> currrentLocationArrayList = new ArrayList();
-        if(mBrandDrop.getCurrentLocationArrayList() != null){
+        if (mBrandDrop.getCurrentLocationArrayList() != null) {
             currrentLocationArrayList = mBrandDrop.getCurrentLocationArrayList();
             currrentLocationArrayList.add(location);
             mBrandDrop.setCurrentLocationArrayList(currrentLocationArrayList);
-        }else
-        {
+        } else {
             currrentLocationArrayList.add(location);
             mBrandDrop.setCurrentLocationArrayList(currrentLocationArrayList);
         }
     }
+
     // This method starts the worker if locations are not being retreived.
     private void startWorker() {
         Intent intent = new Intent(context, MyBroadcastReceiver.class);

@@ -36,6 +36,9 @@ import com.branddrop.addrop.utils.LocationService;
 import com.branddrop.bakit.BrandDrop;
 import com.branddrop.bakit.customViews.CustomAttributesActivity;
 import com.branddrop.bakit.utils.Constants;
+import com.google.android.gms.location.ActivityRecognition;
+import com.google.android.gms.location.ActivityRecognitionClient;
+import com.google.android.gms.location.ActivityRecognitionResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -73,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     BroadcastReceiver br = new com.branddrop.bakit.GeofenceBroadCastReceiver();
     HashMap<String, Object> updatedCustomAttributes;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         init();
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d("MYTAG", "This is your Firebase token" + token);
-
     }
 
     private void checkNotificationPermission() {
@@ -149,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         Intent mIntent = new Intent(this, LocationService.class);
         bindService(mIntent, mConnection, BIND_AUTO_CREATE);
-
     }
 
     ServiceConnection mConnection = new ServiceConnection() {
@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
                         mBrandDrop.setIsForeground(true);
 
                         // Check for Location permissions
-                        mBrandDrop.checkLocationPermissions(getParent());
+                        mBrandDrop.checkLocationPermissions(MainActivity.this);
                         mBrandDrop.checkNotificationPermissions();
 
                         // Initialize BoardActive
@@ -284,18 +284,11 @@ public class MainActivity extends AppCompatActivity {
                 });
         registerReceiver();
     }
-    /* register receiver for geofence trigger*/
 
     public void registerReceiver() {
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         ContextCompat.registerReceiver(this, br, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
-//        this.registerReceiver(br, filter);
-       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ContextCompat.registerReceiver(this, br, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
-        } else {
-            this.registerReceiver(br, filter);
-        }*/
     }
 
     @Override
@@ -305,7 +298,6 @@ public class MainActivity extends AppCompatActivity {
             case Constants.MY_PERMISSIONS_REQUEST_READ_LOCATION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mBrandDrop.setupLocationRequest();
-
                 } else {
                     // Permission Denied
                     Toast.makeText(this, "location denied", Toast.LENGTH_SHORT)
@@ -323,65 +315,46 @@ public class MainActivity extends AppCompatActivity {
                 break;
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
         }
     }
 
     public void btn_messages() {
-
         btn_messages = (Button) findViewById(R.id.btn_messages);
-
         btn_messages.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(getBaseContext(), MessagesActivity.class);
                 startActivity(intent);
             }
-
         });
-
     }
 
     public void btn_userAttributes() {
-
         btn_userAttributes = (Button) findViewById(R.id.btn_userAttributes);
-
         btn_userAttributes.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(getBaseContext(), UserActivity.class);
                 startActivity(intent);
             }
-
         });
-
     }
 
     public void btn_customAttributes() {
-
         btn_customAttributes = (Button) findViewById(R.id.btn_customAttributes);
-
         btn_customAttributes.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
-//                Intent intent = new Intent(getBaseContext(), CustomActivity.class);
                 Intent intent = new Intent(getBaseContext(), CustomAttributesActivity.class);
                 intent.putExtra("baseUrl", BrandDrop.APP_URL_DEV);
                 startActivity(intent);
             }
-
         });
-
     }
 
     public void cancelService() {
         Intent intent = new Intent(this, LocationService.class);
         stopService(intent);
-        //mBoardActive.removeGeofence(this);
-
     }
 
     @Override
@@ -395,23 +368,14 @@ public class MainActivity extends AppCompatActivity {
             this.unbindService(mConnection);
 
         }
-        //  mBoardActive.stop();
         cancelService();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-//        if(br != null){
-//            unregisterReceiver(br);
-//
-//        }
         if (mConnection != null && mBounded) {
             this.unbindService(mConnection);
-
         }
-        //mBoardActive.stop();
     }
-
-
 }

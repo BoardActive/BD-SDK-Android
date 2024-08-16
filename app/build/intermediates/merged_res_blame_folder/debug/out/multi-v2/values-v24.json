@@ -4,7 +4,7 @@
             "outputFile": "com.branddrop.addrop.app-mergeDebugResources-46:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/fbbf3c697a48f63533f59e1b1f30a29a/transformed/material-1.12.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/5cd3369324c3e2cf967605932ed70089/transformed/material-1.12.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/f8dcdd700e3dfddb34ad1a8bf01b197d/transformed/appcompat-1.7.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/41196d39ed4786c04b1035661cb2f33b/transformed/appcompat-1.7.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/f561fc4196f3a6ebc896a257034627a7/transformed/media-1.0.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/46b7484baa39295196365f2ebfdc675a/transformed/media-1.0.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

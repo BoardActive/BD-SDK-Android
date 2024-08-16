@@ -1,12 +1,15 @@
 package com.branddrop.bakit;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
 import android.content.res.Configuration;
 import android.os.Binder;
@@ -14,13 +17,19 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 
+import com.google.android.gms.location.ActivityRecognition;
+import com.google.android.gms.location.ActivityRecognitionClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.Priority;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -61,30 +70,27 @@ public class LocationUpdatesService extends Service {
      */
     public FusedLocationProviderClient mFusedLocationClient;
 
-
     public static final long UPDATE_INTERVAL = 1 * 1000;
     public static final float SMALLEST_DISPLACEMENT = 1.0F;
     public static final long MAX_WAIT_TIME = UPDATE_INTERVAL * 1;
     public String appName;
-    public String ACTION_STOP_SERVICE = "ACTION_STOP_SERVICE";
+    public static String ACTION_STOP_SERVICE = "ACTION_STOP_SERVICE";
+    public static String ACTION_START_SERVICE = "ACTION_START_SERVICE";
+
+    private ActivityRecognitionClient mActivityRecognitionClient;
 
     public LocationUpdatesService() {
     }
-
 
     @SuppressLint("MissingPermission")
     @Override
     public void onCreate() {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        BrandDrop brandDrop = new BrandDrop(this);
+        mActivityRecognitionClient = ActivityRecognition.getClient(this);
 
         createLocationRequest();
+        startActivityUpdates();
 
-        try {
-            mFusedLocationClient.requestLocationUpdates(mLocationRequest, getPendingIntent());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         // Android O requires a Notification Channel.
@@ -97,17 +103,39 @@ public class LocationUpdatesService extends Service {
             // Set the Notification Channel for the Notification Manager.
             mNotificationManager.createNotificationChannel(mChannel);
         }
+    }
 
+    private void startActivityUpdates() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // Android 10 and above
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(new Activity(), new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, 1000);
+                return;
+            }
+        }
+        mActivityRecognitionClient.requestActivityUpdates(3, getPendingIntent())
+                .addOnSuccessListener(aVoid -> Log.d(TAG, "Activity recognition requested"))
+                .addOnFailureListener(e -> Log.e(TAG, "Activity recognition request failed", e));
+    }
 
+    public void startLocationUpdates() {
+        try {
+            mFusedLocationClient.requestLocationUpdates(mLocationRequest, getPendingIntent());
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void stopLocationUpdates() {
+        mFusedLocationClient.removeLocationUpdates(getPendingIntent());
     }
 
     // This method sets the attributes to fetch location updates.
     private void createLocationRequest() {
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(UPDATE_INTERVAL);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setSmallestDisplacement(SMALLEST_DISPLACEMENT);
-//      mLocationRequest.setMaxWaitTime(MAX_WAIT_TIME);
+        mLocationRequest = new LocationRequest.Builder(UPDATE_INTERVAL)
+                .setPriority(Priority.PRIORITY_HIGH_ACCURACY)
+                .setMinUpdateDistanceMeters(SMALLEST_DISPLACEMENT)
+                .build();
     }
 
     private PendingIntent getPendingIntent() {
@@ -119,12 +147,6 @@ public class LocationUpdatesService extends Service {
         } else {
             return PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         }
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            return PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_MUTABLE);
-
-        } else {
-            return PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
-        }*/
     }
 
     @Override
@@ -146,8 +168,11 @@ public class LocationUpdatesService extends Service {
 
         if (ACTION_STOP_SERVICE.equals(intent.getAction())) {
             Log.d(TAG, "called to cancel service");
+            stopLocationUpdates();
             mNotificationManager.cancel(NOTIFICATION_ID);
-            stopSelf();
+//            stopSelf();
+        } else if (ACTION_START_SERVICE.equals(intent.getAction())) {
+            startLocationUpdates();
         }
         // Tells the system to not try to recreate the service after it has been killed.
         return START_NOT_STICKY;
@@ -211,7 +236,6 @@ public class LocationUpdatesService extends Service {
         }
         return builder.build();
     }
-
 
     /**
      * Class used for the client Binder.  Since this service runs in the same process as its
