@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">247328967680-g9uo7eh609jkod6f66f6beocti8enovb.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://boardactive-addrop.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">247328967680</string>
+    <string name="google_api_key" translatable="false">AIzaSyD-IdJFpIxA7_3JBveckuO2YK5SYszKT_o</string>
+    <string name="google_app_id" translatable="false">1:247328967680:android:1dde09c170f3db3e421ce5</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD-IdJFpIxA7_3JBveckuO2YK5SYszKT_o</string>
+    <string name="google_storage_bucket" translatable="false">boardactive-addrop.appspot.com</string>
+    <string name="project_id" translatable="false">boardactive-addrop</string>
+</resources>

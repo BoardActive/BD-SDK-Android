@@ -1,0 +1,47 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.branddrop.addrop.app-mergeDebugResources-46:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/85fd5a516f03799dd340dd45886e9789/transformed/jetified-materialdatetimepicker-4.2.3/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2,3,6,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,153,286,405",
+                        "endLines": "2,5,8,11",
+                        "endColumns": "97,12,12,12",
+                        "endOffsets": "148,281,400,517"
+                    },
+                    "to": {
+                        "startLines": "2,7,10,13",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,326,459,578",
+                        "endLines": "2,9,12,15",
+                        "endColumns": "97,12,12,12",
+                        "endOffsets": "148,454,573,690"
+                    }
+                },
+                {
+                    "source": "/Users/keyurm.prajapati/.gradle/caches/transforms-3/f8dcdd700e3dfddb34ad1a8bf01b197d/transformed/appcompat-1.7.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "153",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "321"
+                    }
+                }
+            ]
+        }
+    ]
+}
