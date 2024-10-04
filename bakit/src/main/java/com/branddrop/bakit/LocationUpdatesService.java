@@ -76,7 +76,6 @@ public class LocationUpdatesService extends Service {
     public String appName;
     public static String ACTION_STOP_SERVICE = "ACTION_STOP_SERVICE";
     public static String ACTION_START_SERVICE = "ACTION_START_SERVICE";
-
     private ActivityRecognitionClient mActivityRecognitionClient;
 
     public LocationUpdatesService() {
@@ -86,9 +85,18 @@ public class LocationUpdatesService extends Service {
     @Override
     public void onCreate() {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        BrandDrop brandDrop = new BrandDrop(this);
+
         mActivityRecognitionClient = ActivityRecognition.getClient(this);
 
         createLocationRequest();
+
+        /*try {
+            mFusedLocationClient.requestLocationUpdates(mLocationRequest, getPendingIntent());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
         startActivityUpdates();
 
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -106,12 +114,8 @@ public class LocationUpdatesService extends Service {
     }
 
     private void startActivityUpdates() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            // Android 10 and above
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(new Activity(), new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, 1000);
-                return;
-            }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
         mActivityRecognitionClient.requestActivityUpdates(3, getPendingIntent())
                 .addOnSuccessListener(aVoid -> Log.d(TAG, "Activity recognition requested"))
@@ -132,10 +136,16 @@ public class LocationUpdatesService extends Service {
 
     // This method sets the attributes to fetch location updates.
     private void createLocationRequest() {
-        mLocationRequest = new LocationRequest.Builder(UPDATE_INTERVAL)
+
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(UPDATE_INTERVAL);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setSmallestDisplacement(SMALLEST_DISPLACEMENT);
+
+        /*mLocationRequest = new LocationRequest.Builder(UPDATE_INTERVAL)
                 .setPriority(Priority.PRIORITY_HIGH_ACCURACY)
                 .setMinUpdateDistanceMeters(SMALLEST_DISPLACEMENT)
-                .build();
+                .build();*/
     }
 
     private PendingIntent getPendingIntent() {
@@ -165,6 +175,12 @@ public class LocationUpdatesService extends Service {
                     type
             );
         }
+
+  /*      if (ACTION_STOP_SERVICE.equals(intent.getAction())) {
+            Log.d(TAG, "called to cancel service");
+            mNotificationManager.cancel(NOTIFICATION_ID);
+//            stopSelf();
+        }*/
 
         if (ACTION_STOP_SERVICE.equals(intent.getAction())) {
             Log.d(TAG, "called to cancel service");

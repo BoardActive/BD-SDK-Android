@@ -213,10 +213,6 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
                 .addOnConnectionFailedListener(this).build();
         geofencingClient = LocationServices.getGeofencingClient(mContext);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(mContext);
-        // Initialize the accelerometer
-//        SensorManager sensorManager = getSystemService(mContext, SensorManager.class);
-//        Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-//        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
     }
 
     /**
@@ -1729,8 +1725,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
             ActivityCompat.requestPermissions((Activity) mContext, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1000);
         } else {
 
-//            startLocationUpdates();
-
+            startLocationUpdates();
             /*LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, mLocationRequest, new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
@@ -2098,7 +2093,7 @@ public class BrandDrop implements GoogleApiClient.ConnectionCallbacks, GoogleApi
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         // notificationId is a unique int for each notification that you must define
         int m = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
-        notificationManager.notify(m, builder.build());
+//        notificationManager.notify(m, builder.build());
     }
 
     public void setUpRegion() {

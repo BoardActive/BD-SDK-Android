@@ -40,9 +40,7 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
             mBrandDrop = new BrandDrop(context.getApplicationContext());
             final String action = intent.getAction();
             if (ACTION_PROCESS_UPDATES.equals(action)) {
-
                 getLocationUpdates(context, intent);
-
                 ActivityRecognitionResult result = ActivityRecognitionResult.extractResult(intent);
                 if (result != null) {
                     Log.d(TAG, "Detected activity: " + result.getMostProbableActivity().getType());
@@ -215,5 +213,4 @@ public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
 //            }, firstLocation.getLatitude(), firstLocation.getLongitude(), date);
 //        }
     }
-
 }
