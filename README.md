@@ -75,7 +75,7 @@ Include the following to your App-level build.gradle
 dependencies {
     ...
     // This line imports the BrandDrop-Android to your project.
-    implementation 'com.github.BoardActive:BD-SDK-Android:3.1.0'
+    implementation 'com.github.BoardActive:BD-SDK-Android:3.2.0'
     ...
 }
 ```
