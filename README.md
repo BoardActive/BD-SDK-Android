@@ -863,6 +863,13 @@ public class MessageModel implements Parcelable {
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
      	</service>
+
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    	<uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+	<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    	<uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+	
 ```
 
 ## How to use the BrandDrop SDK
@@ -878,6 +885,8 @@ public class MainActivity extends AppCompatActivity {
     Boolean isAllowImage = false;
     String imageUrl = "";
     HashMap<String,Object> updatedCustomAttributes;
+
+    private static final int REQUEST_ACTIVITY_RECOGNITION = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -949,6 +958,15 @@ public class MainActivity extends AppCompatActivity {
             }, updatedCustomAttributes);
         });
 
+	 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // Android 10 and above
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACTIVITY_RECOGNITION},
+                        REQUEST_ACTIVITY_RECOGNITION);
+            }
+        }
+
         if (getIntent().getExtras() != null) {
             isAllowImage = getIntent().getBooleanExtra("isAllowImage", false);
             if (isAllowImage) {
@@ -961,6 +979,19 @@ public class MainActivity extends AppCompatActivity {
                 imageUrl = getIntent().getStringExtra("key.IMAGE_URL");
             }
         }
+    }
+
+     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+	if (requestCode == REQUEST_ACTIVITY_RECOGNITION) {
+            if (grantResults.length > 0 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted
+            } else {
+                // Permission denied
+            }
+        }	
     }
 
     private void showAlert(String title, String message, Context context) {
